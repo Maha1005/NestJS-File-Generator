@@ -1,5 +1,6 @@
 {
   "name": "nestjs-file-generator",
+  "publisher": "Mahavarshni",
   "displayName": "NestJS File Generator",
   "description": "A VS Code extension that quickly generates NestJS files like controllers, services, modules, DTOs, and entities with ready-to-use boilerplate code.It saves time by automating repetitive file creation and helps maintain a consistent project structure.",
   "version": "0.0.1",
