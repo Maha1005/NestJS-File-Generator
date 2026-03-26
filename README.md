@@ -1,71 +1,103 @@
-# nestjs-file-generator README
+# NestJS File Generator
 
-This is the README for your extension "nestjs-file-generator". After writing up a brief description, we recommend including the following sections.
+NestJS File Generator is a VS Code extension that creates common NestJS files from the Explorer context menu with ready-to-use boilerplate.
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+- Generate NestJS files directly inside any selected folder in the Explorer.
+- Includes starter templates for:
+	- Controller
+	- Service
+	- Module
+	- DTO
+	- Entity
+- Uses consistent naming patterns to keep your project structure clean.
 
-For example if there is an image subfolder under your extension project workspace:
+## Available Commands
 
-\!\[feature X\]\(images/feature-x.png\)
+This extension contributes the following commands:
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+- `Generate Controller` (`nestjs.generateController`)
+- `Generate Service` (`nestjs.generateService`)
+- `Generate Module` (`nestjs.generateModule`)
+- `Generate DTO` (`nestjs.generateDto`)
+- `Generate Entity` (`nestjs.generateEntity`)
+
+## How It Works
+
+1. In VS Code Explorer, right-click a folder.
+2. Choose one of the generate commands.
+3. Enter a name when prompted.
+4. The extension creates a file in that folder with a NestJS template.
+
+Generated file names:
+
+- `<name>.controller.ts`
+- `<name>.service.ts`
+- `<name>.module.ts`
+- `<name>.dto.ts`
+- `<name>.entity.ts`
+
+## Template Details
+
+- Controller template includes:
+	- `@Controller('<name>')`
+	- Constructor injection of `<Name>Service`
+	- `@Get()` -> `findAll()`
+	- `@Post()` -> `create()`
+- Service template includes:
+	- `findAll()` returning `[]`
+	- `create()` returning `{}`
+- Module template includes:
+	- Controller and Service wiring in `@Module(...)`
+- DTO template:
+	- Empty class: `<Name>Dto`
+- Entity template:
+	- Empty class: `<Name>`
 
 ## Requirements
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+- Visual Studio Code `^1.110.0`
 
 ## Extension Settings
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+This extension does not currently add any custom settings.
 
-For example:
+## Known Limitations
 
-This extension contributes the following settings:
+- Name input is used as-is (no automatic kebab-case or validation).
+- Generated imports in module/controller assume files are in the same folder.
+- Existing files with the same name will be overwritten.
 
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
+## Development
 
-## Known Issues
+Install dependencies:
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+```bash
+npm install
+```
+
+Compile:
+
+```bash
+npm run compile
+```
+
+Watch mode:
+
+```bash
+npm run watch
+```
+
+Run tests:
+
+```bash
+npm test
+```
 
 ## Release Notes
 
-Users appreciate release notes as you update your extension.
+### 0.0.1
 
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
----
-
-## Following extension guidelines
-
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+- Initial release.
+- Added folder context menu generators for Controller, Service, Module, DTO, and Entity.
