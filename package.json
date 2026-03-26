@@ -10,6 +10,7 @@
   "type": "git",
   "url": "https://github.com/Maha1005/NestJS-File-Generator"
   },
+  "license":"MIT",
   "categories": [
     "Other"
   ],
